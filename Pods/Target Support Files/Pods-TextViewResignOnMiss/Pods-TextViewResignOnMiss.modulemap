@@ -1,6 +1,0 @@
-framework module Pods_TextViewResignOnMiss {
-  umbrella header "Pods-TextViewResignOnMiss-umbrella.h"
-
-  export *
-  module * { export * }
-}
