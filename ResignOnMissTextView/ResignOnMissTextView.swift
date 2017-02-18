@@ -6,8 +6,8 @@
 //  Copyright © 2016 Cameron Pierce. All rights reserved.
 //
 
-protocol ResignOnMissTextViewDelegate {
-    func textViewShouldResignOnMiss(_ textView: ResignOnMissTextView) -> Bool
+public protocol ResignOnMissTextViewDelegate {
+    func shouldResignOnMiss(_ textView: ResignOnMissTextView) -> Bool
 }
 
 public let NotificationWindowTapped = "notificationWindowTapped"
@@ -18,7 +18,7 @@ public class ResignOnMissTextView: UITextView {
     public var placeholderColor: UIColor = .lightGray
     var placeholderLabel: UILabel
     var accessoryView: UIView?
-    var dismissDelegate: ResignOnMissTextViewDelegate?
+    public var dismissDelegate: ResignOnMissTextViewDelegate?
 
     override public var textContainerInset: UIEdgeInsets {
         get {
@@ -68,11 +68,6 @@ public class ResignOnMissTextView: UITextView {
         NotificationCenter.default.addObserver(self, selector: #selector(textChanged(_:)), name: NSNotification.Name.UITextViewTextDidChange, object: nil)
     }
 
-    override public func removeFromSuperview() {
-        super.removeFromSuperview()
-
-    }
-
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
@@ -108,7 +103,7 @@ public class ResignOnMissTextView: UITextView {
             {
 
                 if self.dismissDelegate != nil {
-                    if dismissDelegate!.textViewShouldResignOnMiss(self) {
+                    if dismissDelegate!.shouldResignOnMiss(self) {
                         self.resignFirstResponder()
                     }
                 } else {
