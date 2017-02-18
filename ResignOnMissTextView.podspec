@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ResignOnMissTextView"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "ResignOnMissTextView will resign when a user taps off of the view."
   s.description  = "This pod implements a new text view that will listen for a notification to know when to resign itself to allow for resignign when a user taps anywhere but the text view. A placeholder has also been added to this textview."
   s.homepage     = "https://github.com/campierce88/ResignOnMissTextView.git"
